@@ -1,0 +1,272 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+//#define VISUAL_STUDIO // <-- NO NEED TO USE ANYMORE(VS PROJECT HAS IT IN PREPROCESSOR)
+
+// general
+#define DELAY_MILLI_SECOND 70
+
+// Item::printFullSpec() related
+#define MAX_LEN_ITEM_INDEX 3
+#define MAX_LEN_ITEM_NAME 20
+#define MAX_LEN_ITEM_PRICE 6
+#define MAX_LEN_ITEM_DEF 3
+#define MAX_LEN_ITEM_ATK 3
+#define MAX_LEN_ITEM_DURABILITY 6
+
+// class Board related
+#define DEFAULT_ROW_SIZE 10
+#define DEFAULT_COL_SIZE 10
+#define MAX_NUM_TREES 5
+#define MAX_NUM_PORTALS 2
+#define MAX_NUM_POTIONS 2
+#define MAX_NUM_KEYS 1
+#define MAX_NUM_ARMORS 1
+#define MAX_NUM_WEAPONS 1
+#define MAX_NUM_MONS 3
+#define MAX_NUM_BOSSES 0.5
+#define MAX_NUM_MERCHANTS 1
+
+// Viewport related
+#define SCREEN_WIDTH 91
+
+#define VIEWPORT_ROW_HALF_RANGE 10
+#define VIEWPORT_COL_HALF_RANGE 20
+
+#define OUT_OF_BORDER_SHAPE '#'
+
+#define HUGE_MAP_ROW_SIZE 50
+#define HUGE_MAP_COL_SIZE 50
+#define HUGE_MAP_NUM_TREES (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_TREES)
+#define HUGE_MAP_NUM_PORTALS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_PORTALS)
+#define HUGE_MAP_NUM_POTIONS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_POTIONS)
+#define HUGE_MAP_NUM_KEYS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_KEYS)
+#define HUGE_MAP_NUM_ARMORS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_ARMORS)
+#define HUGE_MAP_NUM_WEAPONS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_WEAPONS)
+#define HUGE_MAP_NUM_MONS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_MONS)
+#define HUGE_MAP_NUM_BOSSES (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_BOSSES)
+#define HUGE_MAP_NUM_MERCHANTS (int)(((HUGE_MAP_ROW_SIZE*HUGE_MAP_COL_SIZE)/(DEFAULT_ROW_SIZE*DEFAULT_COL_SIZE))*MAX_NUM_MERCHANTS)
+
+// class Unit related
+#define DEFAULT_UNIT_SHAPE 'U'
+#define DEFAULT_UNIT_MAX_HP 200
+#define DEFAULT_UNIT_HP 100
+#define DEFAULT_UNIT_MAX_MP 200
+#define DEFAULT_UNIT_MP 100
+#define DEFAULT_UNIT_GOLD 5000
+#define DEFAULT_UNIT_EXP 0
+#define DEFAULT_UNIT_ATK 5
+#define DEFAULT_UNIT_DEF 5
+#define DEFAULT_UNIT_LEVEL 1
+
+// class Unit : Level Up realated
+#define INTERVAL_EXP 1000
+#define DEFAULT_UNIT_MAX_EXP INTERVAL_EXP
+#define INTERVAL_MAX_HP 100
+#define INTERVAL_MAX_MP 100
+#define INTERVAL_GOLD_REWARD 10000
+#define INTERVAL_ATK 10
+#define INTERVAL_DEF 10
+
+#define UNIT_ID_HERO "Hero"
+#define UNIT_ID_MONSTER "Monster"
+#define UNIT_ID_BOSS "Boss"
+#define UNIT_ID_MERCHANT "Merchant"
+
+#define NUM_DIRS 4
+#define DIR_NORTH 0
+#define DIR_EAST 1
+#define DIR_SOUTH 2
+#define DIR_WEST 3
+
+#define DIR_NORTH_CHAR 'w'
+#define DIR_EAST_CHAR 'd'
+#define DIR_SOUTH_CHAR 's'
+#define DIR_WEST_CHAR 'a'
+
+// class Hero related
+#define DEFAULT_HERO_SHAPE 'H'
+// * test를 위해 hp를 바꿀때는 max hp도 같이 바꿀 것. 레벨이 올라가면서 max hp로 기존 hp가 조정됨.
+#define DEFAULT_HERO_MAX_HP 30000
+#define DEFAULT_HERO_HP 30000
+#define DEFAULT_HERO_MAX_MP 500
+#define DEFAULT_HERO_MP 200
+#define DEFAULT_HERO_GOLD 10000000
+#define DEFAULT_HERO_EXP 0
+#define DEFAULT_HERO_ATK 2000
+// * 레벨이 올라가면서 def가 올라가면 monster나 boss의 atk가 약할 경우, 공격당해도 hp가 감소하지 않게 된다.
+#define DEFAULT_HERO_DEF 5
+#define DEFAULT_HERO_LEVEL DEFAULT_UNIT_LEVEL
+#define DEFAULT_HERO_MAX_EXP DEFAULT_UNIT_MAX_EXP
+
+// class Monster related
+#define DEFAULT_MONSTER_SHAPE 'm'
+#define DEFAULT_MONSTER_MAX_HP 100
+#define DEFAULT_MONSTER_HP 50
+#define DEFAULT_MONSTER_MAX_MP 100
+#define DEFAULT_MONSTER_MP 50
+#define DEFAULT_MONSTER_GOLD 10
+#define DEFAULT_MONSTER_EXP 100
+#define DEFAULT_MONSTER_ATK 10
+#define DEFAULT_MONSTER_DEF 10
+#define DEFAULT_MONSTER_LEVEL DEFAULT_UNIT_LEVEL
+#define DEFAULT_MONSTER_MAX_EXP DEFAULT_UNIT_MAX_EXP
+
+// class Boss related
+#define DEFAULT_BOSS_SHAPE '&'
+#define DEFAULT_BOSS_MAX_HP 1000
+#define DEFAULT_BOSS_HP 300
+#define DEFAULT_BOSS_MAX_MP 1000
+#define DEFAULT_BOSS_MP 500
+#define DEFAULT_BOSS_GOLD 1000
+#define DEFAULT_BOSS_EXP 10000
+#define DEFAULT_BOSS_ATK 30
+#define DEFAULT_BOSS_DEF 30
+#define DEFAULT_BOSS_LEVEL DEFAULT_UNIT_LEVEL
+#define DEFAULT_BOSS_MAX_EXP DEFAULT_UNIT_MAX_EXP
+
+#define DEFAULT_BOSS_RANGE 7
+
+// class Merchant related
+#define DEFAULT_MERCHANT_SHAPE 'G' // girl
+#define DEFAULT_MERCHANT_ITEMS_TO_SELL_MAX_NUM_ITEMS 10
+#define DEFAULT_MERCHANT_ITEMS_BOUGHT_MAX_NUM_ITEMS 100
+
+// class Item related
+#define DEFAULT_ITEM_SHAPE 'I'
+#define DEFAULT_ITEM_NAME ""
+#define DEFAULT_ITEM_PRICE 0
+
+#define ITEM_ID_WEAPON "Weapon"
+#define ITEM_ID_ARMOR "Armor"
+#define ITEM_ID_KEY "Key"
+#define ITEM_ID_POTION "Potion"
+
+// class Potion related
+#define DEFAULT_POTION_SHAPE 'b'
+#define DEFAULT_POTION_NAME "Potion"
+#define DEFAULT_POTION_PRICE 5
+#define DEFAULT_POTION_HP 50
+#define DEFAULT_POTION_MP 50
+
+// class Key related
+#define DEFAULT_KEY_SHAPE '\''
+#define DEFAULT_KEY_NAME "Key"
+#define DEFAULT_KEY_PRICE 1
+#define DEFAULT_KEY_DURABILITY 3
+
+// class Armor related
+#define DEFAULT_ARMOR_SHAPE 'A'
+#define DEFAULT_ARMOR_NAME "Armor"
+#define DEFAULT_ARMOR_PRICE 0
+#define DEFAULT_ARMOR_DEF 5
+#define DEFAULT_ARMOR_DURABILITY 50
+
+#define BODY_PART_ID_HEAD 0
+#define BODY_PART_ID_CHEST 1
+#define BODY_PART_ID_BACK 2
+#define BODY_PART_ID_HANDS 3
+#define BODY_PART_ID_LEGS 4
+#define BODY_PART_ID_FEET 5
+#define BODY_PART_ID_LEFT_HAND 6
+#define BODY_PART_ID_RIGHT_HAND 7
+
+#define NUM_SHAPES_OF_ARMORS 6
+#define ARMOR_SHAPE_HEAD 'A'
+#define ARMOR_SHAPE_CHEST 'W'
+#define ARMOR_SHAPE_BACK 'Q'
+#define ARMOR_SHAPE_HANDS 'U'
+#define ARMOR_SHAPE_LEGS 'L'
+#define ARMOR_SHAPE_FEET 'F'
+
+#define NUM_SHAPES_OF_WEAPONS 2
+#define WEAPON_SHAPE_ONE_HAND '!'
+#define WEAPON_SHAPE_TWO_HAND '?'
+
+#define WEAPON_ONE_HAND 1
+#define WEAPON_TWO_HAND 2
+
+#define BODY_PART_ID_HEAD_STRING "Head"
+#define BODY_PART_ID_CHEST_STRING "Chest"
+#define BODY_PART_ID_BACK_STRING "Back"
+#define BODY_PART_ID_HANDS_STRING "Hands"
+#define BODY_PART_ID_LEGS_STRING "Legs"
+#define BODY_PART_ID_FEET_STRING "Feet"
+
+// class Weapon related
+#define DEFAULT_WEAPON_SHAPE '!'
+#define DEFAULT_WEAPON_NAME "Weapon"
+#define DEFAULT_WEAPON_PRICE 0
+#define DEFAULT_WEAPON_DEF 5
+#define DEFAULT_WEAPON_DURABILITY 50
+
+#define DEFAULT_WEAPON_ONE_HAND 1
+#define DEFAULT_WEAPON_DUAL_WIELD 2
+
+// class Inventory related
+#define DEFAULT_INVENTORY_MAX_NUM_ITEMS 5
+
+// class Backpack related
+#define DEFAULT_BACKPACK_MAX_NUM_ITEMS 10
+
+// class Paperdoll related
+
+// class Prop related
+#define DEFAULT_PROP_SHAPE 'P'
+
+#define PROP_ID_TREE "Tree"
+#define PROP_ID_LOCKED_CHEST "LockedChest"
+#define PROP_ID_WALL "Wall"
+#define PROP_ID_FOUNTAIN "Fountain"
+#define PROP_ID_PORTAL "Portal"
+#define PROP_ID_EXIT "Exit"
+
+#define DEFAULT_NON_FUNCTIONAL_PROP_SHAPE 'P'
+#define DEFAULT_FUNCTIONAL_PROP_SHAPE 'P'
+
+// class Tree related
+#define DEFAULT_TREE_SHAPE 'Y'
+
+// class LockedChest related
+#define DEFAULT_LOCKED_CHEST_SHAPE 'D'
+
+// class Wall related
+#define WALL_TYPE_VERTICAL 0
+#define WALL_TYPE_HORIZONTAL 1
+#define WALL_TYPE_JOINT 2
+
+#define WALL_TYPE_VERTICAL_SHAPE '|'
+#define WALL_TYPE_HORIZONTAL_SHAPE '-'
+#define WALL_TYPE_JOINT_SHAPE '+'
+
+// class Fountain related
+#define DEFAULT_FOUNTAIN_SHAPE '#'
+#define DEFAULT_FOUNTAIN_HP 100
+#define DEFAULT_FOUNTAIN_MP 100
+
+// class Portal related
+#define DEFAULT_PORTAL_SHAPE 'O'
+
+// class Exit related
+#define DEFAULT_EXIT_SHAPE 'X'
+
+// save()/load()
+#define MAX_LEN_BUF 1000
+
+#define TOMB_STONE_EXIST "EXIST"
+#define TOMB_STONE_NON_EXIST "NON-EXIST"
+
+// class Event related
+#define FPS 10
+
+#define MONSTER_RESPAWN_INTERVAL_MIN (FPS*5)
+#define MONSTER_RESPAWN_INTERVAL_MAX (FPS*10)
+
+//    - 현재 모든 boss는 BOSS_RUSH_EVENT_INTERVAL 초가 지나면, hero를 쫓아오고,
+//      BOSS_RUSH_EVENT_DURATION 초 동안 쫓아다닌다.
+//      range가 rowSize와 colSize중 긴 쪽으로 바뀌므로, board상에 hero가 어디 있든지
+//      쫓아오게 된다.
+#define BOSS_RUSH_EVENT_DURATION (FPS*30)
+#define BOSS_RUSH_EVENT_INTERVAL (FPS*10)
+
+#endif
